@@ -12,8 +12,8 @@ What you need
 Preparing to run
 
 ```console
-$ git clone https://github.com/sharkpp/synology-toolkit-for-none-unix.git
-$ cd synology-toolkit-for-none-unix
+$ git clone https://github.com/sharkpp/synology-toolkit-for-non-unix.git
+$ cd synology-toolkit-for-non-unix
 $ docker/build.sh
            :
  => exporting to image                                                                            1.0s
@@ -75,3 +75,9 @@ Result
 
 * Package generated under `result_spk` folder as `ds.{platform}-{version}/{package name & package version}`.
 * A key created from `key.conf` is generated in `source/.gpupg` (if it already exists, it is not regenerated).
+
+## License
+
+&copy; 2021 sharkpp
+
+This software is licensed under a [The MIT License](http://opensource.org/licenses/MIT).

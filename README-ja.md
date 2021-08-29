@@ -13,8 +13,8 @@
 実行するための準備
 
 ```console
-$ git clone https://github.com/sharkpp/synology-toolkit-for-none-unix.git
-$ cd synology-toolkit-for-none-unix
+$ git clone https://github.com/sharkpp/synology-toolkit-for-non-unix.git
+$ cd synology-toolkit-for-non-unix
 $ docker/build.sh
            :
  => exporting to image                                                                            1.0s
@@ -74,3 +74,9 @@ $ pkgscripts/PkgCreate.py -v 6.2 -p x64 -c minimalPkg
 
 * `result_spk` フォルダの下に `ds.{プラットフォーム}-{バージョン}/{パッケージ名＆パッケージバージョン}` として生成されたパッケージが生成される
 * `source/.gpupg` に `key.conf` から作成されたキーが生成される(既に存在する場合は再生成されない)
+
+## ライセンス
+
+&copy; 2021 sharkpp
+
+このソフトウェアは [The MIT License](http://opensource.org/licenses/MIT) でライセンスされています。
