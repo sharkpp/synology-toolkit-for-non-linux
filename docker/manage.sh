@@ -6,6 +6,7 @@ if [ "" == "$1" ]; then
 fi
 
 IMAGE_NAME=synorogy-toolkit
+VOLUME_NAME=${IMAGE_NAME}-volume
 
 function print_usage() {
   echo "usage: ./manage.sh CMD PARAMS"
@@ -16,17 +17,21 @@ function print_usage() {
 
 function exec_build() {
   docker build -t $IMAGE_NAME .
+  docker volume create --name $VOLUME_NAME
+}
+
+function exec_rebuild() {
+  docker volume rm $VOLUME_NAME
+  exec_build
 }
 
 function exec_run() {
   shift
-  mkdir -p ${CUR_DIR}/toolkit_tarballs
   mkdir -p ${CUR_DIR}/result_spk
   docker run \
     --rm \
-    -v ${CUR_DIR}/source:/toolkit/source_origin \
-    -v ${CUR_DIR}/toolkit_tarballs:/toolkit/toolkit_tarballs \
-    -v ${CUR_DIR}/result_spk:/toolkit/result_spk_origin \
+    -v $VOLUME_NAME:/toolkit \
+    -v ${CUR_DIR}:/toolkit_host \
     --privileged \
     --cap-drop=ALL \
     -it $IMAGE_NAME \
