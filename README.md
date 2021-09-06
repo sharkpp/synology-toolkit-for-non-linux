@@ -1,6 +1,6 @@
-# Synology Toolkit System Requirements for Non-Unix OS
+# Synology Toolkit System Requirements for Non-Linux OS
 
-It provides an environment to run the toolkits distributed by [Synology Developer Center](https://www.synology.com/ja-jp/support/developer) on non-Unix OS such as macOS.
+It provides an environment to run the toolkits distributed by [Synology Developer Center](https://www.synology.com/ja-jp/support/developer) on non-Linux OS such as macOS.
 
 ## Preparation
 
@@ -12,8 +12,8 @@ What you need
 Preparing to run
 
 ```console
-$ git clone https://github.com/sharkpp/synology-toolkit-for-non-unix.git
-$ cd synology-toolkit-for-non-unix
+$ git clone https://github.com/sharkpp/synology-toolkit-for-non-linux.git
+$ cd synology-toolkit-for-non-linux
 $ docker/build.sh
            :
  => exporting to image                                                                            1.0s
@@ -29,19 +29,15 @@ $ docker/build.sh
 Get the platforms that can be specified.
 
 ```console
-$ pkgscripts/EnvDeploy -v 6.2 -l
-Available platforms: 6281 alpine alpine4k apollolake armada370 armada375 armada37xx armada38x armadaxp avoton braswell broadwell broadwellnk bromolow cedarview comcerto2k denverton dockerx64 evansport geminilake grantley hi3535 kvmx64 monaco purley qoriq rtd1296 v1000 x64
+$ pkgscripts/EnvDeploy -v 7.0 -l
+Available bromolow cedarview armadaxp armada370 armada375 evansport comcerto2k avoton alpine braswell apollolake grantley alpine4k monaco broadwell kvmx64 armada38x denverton rtd1296 broadwellnk purley armada37xx geminilake v1000
 ```
 
 Building the development environment
 
 ```console
-$ pkgscripts/EnvDeploy -v 6.2 -p x64
+$ pkgscripts/EnvDeploy -v 7.0 -p braswell
 ```
-
-Results
-
-* `toolkit_tarballs` contains a set of tar files related to the development environment.
 
 ### PkgCreate.py
 
@@ -55,7 +51,7 @@ Create the package
 Create package
 
 ```console
-$ pkgscripts/PkgCreate.py -v 6.2 -p x64 -c minimalPkg
+$ pkgscripts/PkgCreate.py -v 7.0 -p braswell -c minimalPkg
                 :
 ============================================================
                     Time Cost Statistic                     
@@ -68,7 +64,7 @@ $ pkgscripts/PkgCreate.py -v 6.2 -p x64 -c minimalPkg
 00:00:03: Generate code sign
 00:00:00: Collect package
 
-[SUCCESS] pkgscripts/PkgCreate.py -v 6.2 -p x64 -c minimalPkg finished.
+[SUCCESS] pkgscripts/PkgCreate.py -v 7.0 -p braswell -c minimalPkg finished.
 ```
 
 Result
