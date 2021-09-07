@@ -1,4 +1,4 @@
-# Synology Toolkit System Requirements for Non-Linux OS
+# Synology Toolkit Environment for Non-Linux OS
 
 It provides an environment to run the toolkits distributed by [Synology Developer Center](https://www.synology.com/ja-jp/support/developer) on non-Linux OS such as macOS.
 
